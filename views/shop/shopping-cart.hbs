@@ -1,0 +1,61 @@
+<style>
+.value{
+    
+  background: linear-gradient(to right, #ccffff 13%, #ffccff 100%)
+}
+</style>
+<div class="value">
+<div class="text-center">
+    <br>
+    <h2>My Cart</h2>
+</div>
+<br>
+{{# if products }}
+<div class=" row">
+    <div style="padding-left: 300px;">
+        <ul class="list-group" style="padding-right: 280px;">
+            {{# each products}}
+            <li class="list-group-item">
+          
+          
+            <strong style="font-size: 30px;">{{ this.item.title }}</strong>
+            &nbsp;<strong  style="font-size: 20px;">({{ this.item.description }})</strong><br><br>
+              <strong style="font-size: 18px;">Quantity: {{ this.qty }}</strong><br>
+            <strong class="label label-success">Price: {{ this.price }}</strong>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/remove/{{this.item._id}}"><button class="btn btn-danger" id="button" >Remove all</button></a>
+           <a href="/reduce/{{this.item._id}}"><button class="btn btn-danger" id="button1">Remove 1</button></a>
+            </li>
+            {{/each}}
+            
+        </ul>
+
+    </div>
+</div>
+<br>
+<div class="row">
+    <div style="margin-left: 300px; font-size:25px">
+        <strong>Total: {{ totalPrice }}</strong>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div style="margin-left: 650px;">
+     <a href="/checkout" type="button" class="btn btn-lg btn-success">Checkout</a>
+    </div>
+</div>
+<br>
+{{ else }}
+<div class="row">
+    <div class="text-center">
+    <h2>No items in cart</h2>
+    </div>
+</div>
+</div>
+{{/if}}
+
